@@ -13,6 +13,6 @@
   lineinfile:
     path: /etc/ntp.conf
     state: present
-    line: "server {{ item }} prefer"
-  with_items: "{{ ntpd.servers }}"
+    line: "server {{ item }}"
+  with_items: "{{ ntp.servers }}"
   notify: restart ntp

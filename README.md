@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: servers
       vars:
-        ntpd:
+        ntp:
           servers:
             - 192.168.0.10
             - cuckoo.example.local
