@@ -1,0 +1,10 @@
+---
+# tasks file for ntp-cli package installation
+
+- name: Install NTP server apt packages
+  become: true
+  apt:
+    update_cache: true
+    name: ntp
+    state: present
+  notify: start ntp

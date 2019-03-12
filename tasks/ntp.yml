@@ -1,0 +1,17 @@
+---
+# tasks file for ntp-cli configuration
+
+- name: Remove default NTP servers
+  become: true
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: '^(pool|server) '
+    state: absent
+
+- name: Set NTP servers
+  become: true
+  lineinfile:
+    path: /etc/ntp.conf
+    state: present
+    line: "server {{ item }} prefer"
+  with_items: "{{ ntpd.servers }}"
