@@ -7,4 +7,3 @@
     update_cache: true
     name: ntp
     state: present
-  notify: start ntp
